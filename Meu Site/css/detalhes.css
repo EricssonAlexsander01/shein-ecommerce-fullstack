@@ -1,0 +1,253 @@
+/* =================================================================== */
+/* ESTILOS ESPECÍFICOS PARA DETALHES DO PRODUTO                          */
+/* =================================================================== */
+
+/* Título Centralizado */
+.page-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+/* Container Principal - Usa Flexbox para dispor Imagem e Info lado a lado */
+.product-details-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 60px;
+    gap: 40px; /* Espaço entre as colunas (imagem e info) */
+}
+
+/* Galeria de Imagens */
+.gallery {
+    display: flex;
+    gap: 15px;
+    flex-shrink: 0; /* Evita que a galeria encolha */
+}
+
+/* Miniaturas (Thumbnails) */
+.thumbnails {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.thumbnails img {
+    width: 60px; /* Largura das miniaturas */
+    height: 90px;
+    object-fit: cover;
+    border: 1px solid #eee;
+    cursor: pointer;
+}
+
+.thumbnails img.active {
+    border-color: #000; /* Borda preta na miniatura selecionada */
+}
+
+/* Imagem Principal */
+.main-image img {
+    width: 400px; /* Largura da imagem principal */
+    height: 600px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+
+/* Seção de Informações */
+.info-section {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.info-section h2 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-top: 0;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* Opções de Tamanho */
+.size-options {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.size-btn {
+    padding: 8px 15px;
+    border: 1px solid #ccc;
+    background: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.size-btn.selected {
+    border-color: #000;
+    font-weight: 600;
+}
+
+/* Opções de Cor (simulação com pontos) */
+.color-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.color-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.color-dot.pink { background-color: #ffb8c0; }
+.color-dot.black { background-color: #000; }
+.color-dot.white { background-color: #fff; }
+
+.color-dot.active {
+    /* Efeito de seleção na cor */
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #000; 
+}
+
+/* Descrição */
+.description {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #555;
+    margin-bottom: 25px;
+    max-width: 80%;
+}
+
+/* Botão Carrinho */
+.btn-cart {
+    background-color: #e8476b; /* Cor rosa/pink */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%; /* Ocupa a largura total da seção de info */
+    max-width: 300px;
+    transition: background-color 0.2s;
+}
+
+.btn-cart:hover {
+    background-color: #c93b5b;
+}
+
+/* Informação de Frete */
+.shipping-info {
+    font-size: 12px;
+    color: #555;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+/* Avaliações */
+.ratings h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.rating-value {
+    font-size: 14px;
+    color: #555;
+}
+
+.rating-value .fas {
+    color: #FFC107; /* Cor das estrelas (amarelo/ouro) */
+    margin-right: 2px;
+}
+
+/* =================================================================== */
+/* PRODUTOS RELACIONADOS (Reutiliza .card da página inicial)             */
+/* =================================================================== */
+
+.related-products {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 60px;
+}
+
+.related-products h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.related-cards-container {
+    /* Usa Flexbox para exibir os cards horizontalmente */
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; /* Adiciona scroll horizontal se houver muitos cards */
+    padding-bottom: 10px;
+}
+
+.related-cards-container .card {
+    /* Garante que os cards não fiquem muito pequenos */
+    flex-shrink: 0; 
+    width: 180px; /* Largura ajustada para caber mais na linha */
+}
+
+
+/* =================================================================== */
+/* RESPONSIVIDADE PARA TELA DE DETALHES                                  */
+/* =================================================================== */
+
+@media (max-width: 900px) {
+    .product-details-container {
+        /* Muda para empilhar a galeria e as informações */
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .gallery {
+        flex-direction: row; /* Coloca miniaturas ao lado da principal */
+        align-items: flex-start;
+        max-width: 100%;
+    }
+
+    .thumbnails {
+        flex-direction: column;
+    }
+
+    .main-image img {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+    }
+    
+    .info-section {
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .info-section h2, .price, .description, .ratings {
+        text-align: center;
+    }
+    
+    .size-options, .color-options {
+        justify-content: center;
+    }
+
+    .btn-cart {
+        max-width: 100%;
+    }
+
+    .related-products {
+        padding: 0 20px;
+    }
+}

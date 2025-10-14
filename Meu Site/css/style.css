@@ -1,0 +1,158 @@
+/* =================================================================== */
+/* ESTILOS GLOBAIS                           */
+/* =================================================================== */
+
+* {
+    /* Reseta as margens e preenchimentos padrão do navegador */
+    margin: 0;
+    padding: 0;
+    /* Inclui padding e borda no cálculo total da largura/altura do elemento */
+    box-sizing: border-box; 
+    /* Define a fonte padrão para o projeto */
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color:#ffffff ;
+    color: #111;
+}
+
+/* =================================================================== */
+/* HEADER                               */
+/* =================================================================== */
+
+header {
+    /* Usa Flexbox para alinhar itens horizontalmente */
+    display: flex;
+    align-items: center;
+    /* Distribui o espaço entre os elementos (Logo, Welcome, Nav) */
+    justify-content: space-between; 
+    padding: 20px 60px;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.welcome {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    /* Permite que o texto de boas-vindas ocupe o espaço central */
+    flex: 1; 
+}
+
+/* Navegação Principal */
+nav ul {
+    /* Usa Flexbox para alinhar os itens de menu lado a lado */
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+}
+
+.login-btn {
+    border: 1px solid #000;
+    background: transparent;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+/* =================================================================== */
+/* SEÇÃO DE PRODUTOS (CARDS)                      */
+/* =================================================================== */
+
+.produtos {
+    /* Usa Grid para criar um layout de colunas para os produtos */
+    display: grid;
+    /* Cria 4 colunas de largura igual (1 fração de espaço) */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 25px;
+    padding: 40px 60px;
+    /* Centraliza os cards dentro das colunas */
+    justify-items: center; 
+}
+
+/* Estilo do Card Individual */
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: center;
+    width: 220px; /* Largura fixa do card */
+}
+
+.card img {
+    width: 100%;
+    /* Remove espaço extra que pode surgir abaixo da imagem */
+    display: block; 
+}
+
+.card h3 {
+    font-size: 15px;
+    margin-top: 8px;
+}
+
+.card p {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+/* Estilo do Link que Envolve o Card */
+.card-link {
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+    /* Garante que o texto dentro do link mantenha a cor do seu pai (não fique azul) */
+    color: inherit; 
+}
+
+
+/* =================================================================== */
+/* RESPONSIVIDADE                         */
+/* =================================================================== */
+
+/* Dispositivos Médios (Tablets ou Telas Maiores) */
+@media (max-width: 1024px) {
+    .produtos {
+        /* Muda o layout de 4 para 2 colunas */
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+/* Dispositivos Pequenos (Celulares) */
+@media (max-width: 600px) {
+    header {
+        /* Quebra o header em uma coluna (itens empilhados) */
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .welcome {
+        /* Move o texto "Bem-Vindo" para baixo dos links/logo */
+        order: 3; 
+    }
+
+    nav ul {
+        /* Permite que os links quebrem linha se a tela for muito pequena */
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .produtos {
+        /* Muda o layout para 1 coluna (cards empilhados) */
+        grid-template-columns: 1fr; 
+        padding: 20px;
+    }
+}
