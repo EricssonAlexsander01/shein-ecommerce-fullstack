@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Carrinho - MyShein</title>
+    <link rel="stylesheet" href="css/style.css"> 
+    <link rel="stylesheet" href="css/about.css"> 
+</head>
+<body>
+    
+    <header>
+        <div class="logo">MYSHEIN</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">Carrinho</a></li>
+                <li><a href="form.html">Sobre</a></li>
+                <li><a href="formAction.html" class="login-btn">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="carrinho-page">
+        
+        <h1 class="page-title">Seu Carrinho</h1>
+
+        <div class="cart-layout-container">
+            
+            <section class="cart-items-section">
+                <div class="cart-items-header">
+                    <h2>Itens no Carrinho (<span id="cart-header-count">0</span>)</h2>
+                </div>
+
+                <div id="carrinho-lista-produtos">
+                    </div>
+                
+                <div class="sugestoes-cupons">
+                    </div>
+            </section>
+
+            <aside class="cart-summary-section">
+                <h3>Resumo do Pedido</h3>
+                
+                <div class="summary-details">
+                    <div class="summary-row"><span>Subtotal:</span><span id="subtotal">R$ 0,00</span></div>
+                    <div class="summary-row"><span>Frete:</span><span id="frete">R$ 0,00</span></div>
+                    <div class="summary-row"><span>Desconto (Cupom):</span><span id="desconto">R$ 0,00</span></div>
+                </div>
+                
+                <div class="summary-total">
+                    <h4>Total a Pagar:</h4>
+                    <h4 id="total-final" class="total-value">R$ 0,00</h4>
+                </div>
+                
+                <button class="btn-checkout-final">FINALIZAR COMPRA</button>
+
+                <div class="checkout-garantia">
+                </div>
+            </aside>
+            
+        </div>
+    </main>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>

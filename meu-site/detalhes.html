@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blusa Básica Canelada - MyShein</title>
+    <link rel="stylesheet" href="css/style.css"> 
+    <link rel="stylesheet" href="css/detalhes.css"> 
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    
+    <header>
+        <div class="logo">MYSHEIN</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">Carrinho</a></li>
+                <li><a href="form.html">Sobre</a></li>
+                <li><a href="formAction.html" class="login-btn">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="page-title">Bem-Vindo à Mini Shein</h1>
+        
+        <section class="product-details-container">
+            
+            <div class="gallery">
+                <div class="thumbnails">
+                    <img src="img/imgblusa_principal.png.png" alt="Miniatura 1" class="active">
+                    <img src="img/imgblusa_mini_1.png.png" alt="Miniatura 2">
+                    <img src="img/imgblusa_mini_2.png.png" alt="Miniatura 3">
+                    <img src="img/imgblusa_mini_3.png.png" alt="Miniatura 4">
+                    <img src="img/imgblusa_mini_4.png.png" alt="Miniatura 5">
+                </div>
+                <div class="main-image">
+                    <img id="main-product-image" src="img/Gemini_Generated_Image_6hu1iv6hu1iv6hu1.png" alt="Blusa Básica Canelada"> 
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h2>Blusa Básica Canelada</h2>
+                <p class="price">R$ 29,90</p>
+                
+                <p>Tamanho:</p>
+                <div class="size-options">
+                    <button class="size-btn selected" data-size="Samizo">Samizo</button>
+                    <button class="size-btn" data-size="P">P</button>
+                    <button class="size-btn" data-size="M">M</button>
+                    <button class="size-btn" data-size="G">G</button>
+                    <button class="size-btn" data-size="GG">GG</button>
+                </div>
+
+                <p>Cor:</p>
+                <div class="color-options">
+                    <span class="color-dot pink active" data-color="Rosa"></span>
+                    <span class="color-dot black" data-color="Preto"></span>
+                    <span class="color-dot white" data-color="Branco"></span>
+                </div>
+
+                <p class="description">
+                    Malha canelada leve e macia. Caimento justo e confortável. Perfeita para o dia a dia.
+                    Composição: 96% Viscose, 4% Elastano.
+                </p>
+
+                <button class="btn-cart">Adicionar ao Carrinho</button>
+                
+                <p class="shipping-info">Frete grátis para compras acima de R$100)</p>
+
+                <div class="ratings">
+                    <h3>Avaliações</h3>
+                    <p class="rating-value">
+                        4.5 
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star filled"></i>
+                        <i class="fas fa-star-half-alt filled"></i>
+                        (35 avaliações)
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="related-products">
+            <h3>Clientes Também Visitaram</h3>
+            <div class="related-cards-container">
+                <div class="card"><img src="img/vestido_floral_curto.jpg.png" alt="Produto Relacionado"></div>
+                <div class="card"><img src="img/cropped_renda_gotica.jpg.png" alt="Produto Relacionado"></div>
+                <div class="card"><img src="img/cropped_xadrez_bufante.jpg.png" alt="Produto Relacionado"></div>
+                <div class="card"><img src="img/conjunto_cargo_neutro.jpg.png" alt="Produto Relacionado"></div>
+                <div class="card"><img src="img/produto_relacionado_modelo_x.jpg.png" alt="Produto Relacionado"></div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sizeButtons = document.querySelectorAll('.size-btn');
+            const colorDots = document.querySelectorAll('.color-dot');
+            const btnCarrinho = document.querySelector('.btn-cart');
+            const produtoNome = document.querySelector('.info-section h2').textContent.trim();
+            const produtoPrecoTexto = document.querySelector('.price').textContent;
+            const imagemSrc = document.getElementById('main-product-image').src;
+
+            // ----------------------------------------------------
+            // Lógica de Seleção de Tamanho
+            // ----------------------------------------------------
+            sizeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove a classe 'selected' de todos
+                    sizeButtons.forEach(btn => btn.classList.remove('selected'));
+                    // Adiciona a classe 'selected' apenas no clicado
+                    button.classList.add('selected');
+                });
+            });
+
+            // ----------------------------------------------------
+            // Lógica de Seleção de Cor
+            // ----------------------------------------------------
+            colorDots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    // Remove a classe 'active' de todos
+                    colorDots.forEach(d => d.classList.remove('active'));
+                    // Adiciona a classe 'active' apenas no clicado
+                    dot.classList.add('active');
+                });
+            });
+
+
+            // ----------------------------------------------------
+            // Lógica de Adicionar ao Carrinho (Capturando Seleções)
+            // ----------------------------------------------------
+            btnCarrinho.addEventListener('click', (event) => {
+                event.preventDefault();
+
+                // 1. CAPTURA DOS VALORES SELECIONADOS
+                const selectedSizeEl = document.querySelector('.size-btn.selected');
+                const selectedColorEl = document.querySelector('.color-dot.active');
+
+                // Verificação de seleção (opcional, mas recomendado)
+                if (!selectedSizeEl) {
+                    alert('Por favor, selecione um tamanho.');
+                    return;
+                }
+                if (!selectedColorEl) {
+                    alert('Por favor, selecione uma cor.');
+                    return;
+                }
+
+                const tamanhoSelecionado = selectedSizeEl.getAttribute('data-size');
+                const corSelecionada = selectedColorEl.getAttribute('data-color');
+
+
+                // 2. PREPARAÇÃO DOS DADOS
+                const precoLimpo = produtoPrecoTexto.replace('R$', '').trim().replace(',', '.');
+                const produtoPreco = parseFloat(precoLimpo);
+
+                const item = {
+                    id: Date.now(),
+                    nome: produtoNome,
+                    price: produtoPreco,
+                    quantidade: 1,
+                    // COMBINA TAMANHO E COR NA VARIANT
+                    variant: `Tam: ${tamanhoSelecionado} / Cor: ${corSelecionada}`,
+                    image: imagemSrc
+                };
+
+                // 3. SALVA NO LOCALSTORAGE
+                let carrinho = JSON.parse(localStorage.getItem('mySheinCarrinho')) || [];
+                carrinho.push(item);
+                localStorage.setItem('mySheinCarrinho', JSON.stringify(carrinho));
+                
+                // 4. REDIRECIONAR PARA A PÁGINA DO CARRINHO
+                
+                window.location.href = 'about.html';
+            });
+        });
+    </script>
+</body>
+</html>
