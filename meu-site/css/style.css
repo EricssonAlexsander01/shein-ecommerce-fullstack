@@ -1,101 +1,133 @@
 /* =================================================================== */
-/* ESTILOS GLOBAIS                           */
+/* ESTILOS GLOBAIS                                                     */
 /* =================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
 * {
-    /* Reseta as margens e preenchimentos padrão do navegador */
+    /* Corrigindo a duplicação de font-family e aplicando um recuo limpo */
+    font-family: 'Poppins', sans-serif; 
     margin: 0;
     padding: 0;
-    /* Inclui padding e borda no cálculo total da largura/altura do elemento */
-    box-sizing: border-box; 
-    /* Define a fonte padrão para o projeto */
-    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
 }
 
 body {
-    background-color:#ffffff ;
+    background-color: #EFEFEF; /* Seu fundo cinza quente */
     color: #111;
 }
 
 /* =================================================================== */
-/* HEADER                               */
+/* HEADER - ESTILOS MELHORADOS                                         */
 /* =================================================================== */
 
 header {
-    /* Usa Flexbox para alinhar itens horizontalmente */
     display: flex;
     align-items: center;
-    /* Distribui o espaço entre os elementos (Logo, Welcome, Nav) */
     justify-content: space-between; 
     padding: 20px 60px;
-    border-bottom: 1px solid #ddd;
+    
+    /* Adicionando Fundo Branco e Sombra Elegante */
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    border-bottom: none; /* Remove a borda para usar a sombra */
 }
 
 .logo {
-    font-weight: 700;
-    font-size: 20px;
+    font-weight: 800; /* Mais destaque */
+    font-size: 24px; /* Maior */
+    color: #f0627b; /* Cor de destaque (pink) */
 }
 
 .welcome {
     font-size: 16px;
     font-weight: 600;
     text-align: center;
-    /* Permite que o texto de boas-vindas ocupe o espaço central */
     flex: 1; 
 }
 
 /* Navegação Principal */
 nav ul {
-    /* Usa Flexbox para alinhar os itens de menu lado a lado */
     display: flex;
     align-items: center;
     list-style: none;
-    gap: 20px;
+    gap: 25px; /* Aumentando o espaçamento */
 }
 
 nav a {
     text-decoration: none;
-    color: #000;
-    font-size: 14px;
+    color: #333; /* Cor de texto padrão */
+    font-size: 15px; /* Fonte levemente maior */
+    font-weight: 500;
+    position: relative; /* Necessário para o efeito de linha */
+    transition: color 0.3s ease;
+    padding-bottom: 5px; /* Espaço para a linha de hover */
 }
 
+/* Efeito de destaque para o link ativo/hover */
+nav a:hover {
+    color: #f0627b; 
+}
+
+/* EFEITO DE LINHA INFERIOR (UNDERLINE ANIMADO) */
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #f0627b;
+    transition: width 0.3s ease; 
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%; /* A linha preenche 100% no hover e no ativo */
+}
+
+/* Estilo para o botão de Login (mais chamativo - formato pílula) */
 .login-btn {
-    border: 1px solid #000;
-    background: transparent;
-    padding: 4px 10px;
-    border-radius: 4px;
+    border: none; /* Remove a borda antiga */
+    background: #f0627b; /* Cor de fundo rosa/pink */
+    color: #ffffff; /* Texto branco */
+    padding: 8px 18px; /* Mais padding */
+    border-radius: 20px; /* Borda arredondada */
     cursor: pointer;
-    font-size: 13px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.2s ease;
+    text-decoration: none; /* Remove qualquer sublinhado */
+}
+
+.login-btn:hover {
+    background: #d44d65; /* Rosa mais escuro no hover */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(240, 98, 123, 0.4);
 }
 
 /* =================================================================== */
-/* SEÇÃO DE PRODUTOS (CARDS)                      */
+/* SEÇÃO DE PRODUTOS (CARDS) - Restante do Código (inalterado)         */
 /* =================================================================== */
 
 .produtos {
-    /* Usa Grid para criar um layout de colunas para os produtos */
     display: grid;
-    /* Cria 4 colunas de largura igual (1 fração de espaço) */
     grid-template-columns: repeat(4, 1fr); 
     gap: 25px;
     padding: 40px 60px;
-    /* Centraliza os cards dentro das colunas */
     justify-items: center; 
 }
 
-/* Estilo do Card Individual */
 .card {
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     overflow: hidden;
     text-align: center;
-    width: 220px; /* Largura fixa do card */
+    width: 220px; 
 }
 
 .card img {
     width: 100%;
-    /* Remove espaço extra que pode surgir abaixo da imagem */
     display: block; 
 }
 
@@ -110,49 +142,42 @@ nav a {
     margin-bottom: 12px;
 }
 
-/* Estilo do Link que Envolve o Card */
 .card-link {
-    text-decoration: none; /* Remove o sublinhado padrão dos links */
-    /* Garante que o texto dentro do link mantenha a cor do seu pai (não fique azul) */
+    text-decoration: none; 
     color: inherit; 
 }
 
 
 /* =================================================================== */
-/* RESPONSIVIDADE                         */
+/* RESPONSIVIDADE - Restante do Código (inalterado)                    */
 /* =================================================================== */
 
-/* Dispositivos Médios (Tablets ou Telas Maiores) */
 @media (max-width: 1024px) {
     .produtos {
-        /* Muda o layout de 4 para 2 colunas */
         grid-template-columns: repeat(2, 1fr); 
     }
 }
 
-/* Dispositivos Pequenos (Celulares) */
 @media (max-width: 600px) {
     header {
-        /* Quebra o header em uma coluna (itens empilhados) */
         flex-direction: column;
         text-align: center;
         gap: 10px;
+        box-shadow: none; /* remove a sombra do header no mobile */
     }
 
     .welcome {
-        /* Move o texto "Bem-Vindo" para baixo dos links/logo */
         order: 3; 
     }
 
     nav ul {
-        /* Permite que os links quebrem linha se a tela for muito pequena */
         flex-wrap: wrap;
         justify-content: center;
     }
 
     .produtos {
-        /* Muda o layout para 1 coluna (cards empilhados) */
         grid-template-columns: 1fr; 
         padding: 20px;
     }
 }
+

@@ -1,152 +1,219 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Removendo a duplicação de font-family */
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-  background: #fff;
-  color: #000;
+    background-color: #EFEFEF;
+    color: #333; /* Usando o #333 padrão para texto principal */
 }
 
-/* ===== HEADER ===== */
+/* ------------------------------------------------------------------- */
+/* HEADER PADRONIZADO (Com título central e visual melhorado)          */
+/* ------------------------------------------------------------------- */
+
 header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 60px;
-  border-bottom: 1px solid #ddd;
+    /* Layout com Logo - Título Central - Navegação */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 60px;
+    background: #fff;
+    /* Aplicando a sombra padrão e removendo a borda */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    border-bottom: none; 
 }
 
 .logo {
-  font-weight: 700;
-  font-size: 20px;
+    font-weight: 800;
+    font-size: 24px; /* Maior */
+    color: #f0627b; /* Cor de destaque */
 }
 
+/* NOVO: Estilo do Título Central "Bem-Vindo à Mini Shein" (Se adicionado ao HTML) */
+.welcome {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    flex: 1; 
+}
+
+/* Navegação Principal - Agora suporta a estrutura UL/LI */
 nav ul {
-  display: flex;
-  align-items: center;
-  list-style: none;
-  gap: 20px;
+    display: flex;
+    align-items: center;
+    list-style: none; /* Remove o ponto da lista */
+    gap: 25px; /* Espaçamento unificado e moderno */
 }
 
-nav a {
-  text-decoration: none;
-  color: #000;
-  font-size: 14px;
+/* Estilo dos Links */
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 15px; /* Tamanho unificado */
+    position: relative;
+    padding-bottom: 5px; 
+    transition: color 0.3s ease;
 }
 
+nav ul li a:hover {
+    color: #f0627b;
+}
+
+nav ul li a.active {
+    color: #f0627b;
+    font-weight: 600;
+}
+
+/* EFEITO DE LINHA INFERIOR (underline animado) */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #f0627b;
+    transition: width 0.3s ease; 
+}
+
+nav ul li a.active::after,
+nav ul li a:hover::after {
+    width: 100%; 
+}
+
+/* Botão de Login (Estilo Pílula) */
 .login-btn {
-  border: 1px solid #000;
-  background: transparent;
-  padding: 4px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 13px;
+    border: none;
+    background: #f0627b; 
+    color: #ffffff;
+    padding: 8px 18px; 
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
-/* ===== LOGIN FORM ===== */
+.login-btn:hover {
+    background: #d44d65;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(240, 98, 123, 0.4);
+}
+
+/* ------------------------------------------------------------------- */
+/* LOGIN FORM E RESPONSIVIDADE (Mantido, mas com pequenas correções)   */
+/* ------------------------------------------------------------------- */
+
 .login-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 60px;
 }
 
 .login-container h2 {
-  font-size: 18px;
-  font-weight: 600;
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .login-container p {
-  font-size: 13px;
-  margin-top: 4px;
-  color: #555;
+    font-size: 13px;
+    margin-top: 4px;
+    color: #555;
 }
 
 .login-container .link {
-  display: block;
-  font-size: 12px;
-  margin: 10px 0 20px 0;
-  text-decoration: underline;
-  color: #000;
+    display: block;
+    font-size: 12px;
+    margin: 10px 0 20px 0;
+    text-decoration: underline;
+    color: #000;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  gap: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 10px;
 }
 
 label {
-  font-size: 13px;
-  text-align: left;
+    font-size: 13px;
+    text-align: left;
 }
 
 input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 .btn-continuar {
-  background-color: #e8476b;
-  color: #fff;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  font-weight: 600;
-  cursor: pointer;
+    background-color: #e8476b;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
 }
 
 .divider {
-  margin: 20px 0;
-  font-size: 13px;
-  color: #555;
+    margin: 20px 0;
+    font-size: 13px;
+    color: #555;
 }
 
 /* ===== SOCIAL BUTTONS ===== */
 .social {
-  width: 300px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  background-color: #fff;
-  cursor: pointer;
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    cursor: pointer;
 }
 
-.social.google:hover {
-  background: #f1f1f1;
-}
-
+.social.google:hover,
 .social.facebook:hover {
-  background: #f1f1f1;
+    background: #f1f1f1;
 }
 
 /* ===== RESPONSIVO ===== */
 @media (max-width: 600px) {
-  header {
-    flex-direction: column;
-    text-align: center;
-    gap: 10px;
-  }
+    header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+        box-shadow: none; /* remove a sombra no mobile */
+    }
 
-  .login-container {
-    margin-top: 40px;
-    padding: 0 20px;
-  }
+    /* NOVO: Estilo responsivo para o welcome */
+    .welcome {
+        order: 3;
+    }
 
-  form,
-  .social {
-    width: 100%;
-  }
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .login-container {
+        margin-top: 40px;
+        padding: 0 20px;
+    }
+
+    form,
+    .social {
+        width: 100%;
+    }
 }
-
-
-
-
-
